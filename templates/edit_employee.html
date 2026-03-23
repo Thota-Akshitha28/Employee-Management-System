@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h2><i class="fas fa-edit"></i> Edit Employee</h2>
+    <form action="/edit_employee" method="post">
+        <input type="hidden" name="eid" value="{{ employee[0] }}">
+        <input type="text" name="ename" value="{{ employee[1] }}" placeholder="Name" required>
+        <input type="text" name="edept" value="{{ employee[2] }}" placeholder="Department" required>
+        <input type="text" name="esalary" value="{{ employee[3] }}" placeholder="Salary" required>
+        <input type="text" name="ephone" value="{{ employee[4] }}" placeholder="Phone" required>
+        <button type="submit"><i class="fas fa-sync-alt"></i> Update Employee</button>
+    </form>
+</center>
+{% endblock %}

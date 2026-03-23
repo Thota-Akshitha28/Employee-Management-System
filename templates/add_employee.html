@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h2><i class="fas fa-user-plus"></i> Add Employee</h2>
+    <form action="/add_employee" method="post">
+        <input type="text" name="eid" placeholder="Employee ID" required>
+        <input type="text" name="ename" placeholder="Full Name" required>
+        <input type="text" name="edept" placeholder="Department" required>
+        <input type="text" name="esalary" placeholder="Salary" required>
+        <input type="text" name="ephone" placeholder="Phone Number" required>
+        <button type="submit"><i class="fas fa-save"></i> Add Employee</button>
+    </form>
+</center>
+{% endblock %}

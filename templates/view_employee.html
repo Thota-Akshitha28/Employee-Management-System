@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h2><i class="fas fa-address-book"></i> Employee List</h2>
+    
+    <!-- Search Form -->
+    <form class="search-box" action="/search_employee" method="POST">
+        <input type="text" name="keyword" placeholder="Search by ID, Name or Department" required>
+        <button type="submit"><i class="fas fa-search"></i> Search</button>
+        <a href="/view_employee"><i class="fas fa-redo-alt"></i> Reset</a>
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+        {% for emp in employee %}
+        <tr>
+            <td>{{ emp[0] }}</td>
+            <td>{{ emp[1] }}</td>
+            <td>{{ emp[2] }}</td>
+            <td>{{ emp[3] }}</td>
+            <td>{{ emp[4] }}</td>
+            <td class="action-links">
+                <a href="/edit/{{ emp[0] }}"><i class="fas fa-edit"></i> Edit</a> |
+                <a href="/delete/{{ emp[0] }}" onclick="return confirm('Delete this employee?');"><i class="fas fa-trash-alt"></i> Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

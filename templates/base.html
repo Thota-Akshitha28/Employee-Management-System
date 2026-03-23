@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Employee Management{% endblock %}</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1><i class="fas fa-users"></i> Employee Management System</h1>
+    </header>
+
+<!-- NAVBAR -->
+<!-- NAVBAR SECTION (SEPARATE BAR) -->
+<div class="nav-wrapper">
+    <nav class="navbar">
+        <div class="nav-links">
+
+        {% if session.get('user') %}
+            <!-- AFTER LOGIN -->
+            <span class="welcome-text">
+                <i class="fas fa-user-circle"></i> Welcome, {{ session['user'] }}
+            </span>
+
+            <a href="{{ url_for('dashboard') }}">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+
+            <a href="{{ url_for('profile') }}">
+                <i class="fas fa-user"></i> Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+
+        {% else %}
+            <!-- BEFORE LOGIN -->
+            <a href="{{ url_for('register') }}">
+                <i class="fas fa-user-plus"></i> Register
+            </a>
+
+            <a href="{{ url_for('login') }}">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                <i class="fas fa-info-circle"></i> About
+            </a>
+
+           <a href="{{ url_for('contact') }}">
+    <i class="fas fa-address-card"></i> Contact
+</a>
+
+        {% endif %}
+
+        </div>
+    </nav>
+</div>
+
+</div>
+    <!-- Main Content with Flash Messages -->
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}"><i class="fas fa-info-circle"></i> {{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-box">
+            <div class="footer-line copyright"><i class="far fa-copyright"></i>2026 Akshitha Thota</div>All rights are reserved <br>Developed by using FLask and Mysql
+            <div class="footer-line tech"></div>
+        </div>
+    </footer>
+</body>
+</html>

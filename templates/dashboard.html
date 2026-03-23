@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+    <div class="cards-grid">
+        <a href="/add_employee" class="note-card">
+            <i class="fas fa-user-plus"></i>
+            <h3>Add Employee</h3>
+            <p>Create a new employee record</p>
+        </a>
+        <a href="/view_employee" class="note-card">
+            <i class="fas fa-list"></i>
+            <h3>View Employees</h3>
+            <p>Browse all employee details</p>
+        </a>
+        <a href="/logout" class="note-card">
+            <i class="fas fa-sign-out-alt"></i>
+            <h3>Logout</h3>
+            <p>End your current session</p>
+        </a>
+    </div>
+    
+</center>
+{% endblock %}

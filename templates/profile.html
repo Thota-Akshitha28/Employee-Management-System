@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h2>Profile</h2>
+
+    <p>Welcome, {{ user.uname }}</p>
+
+    {% if user.profile_pic %}
+        <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}"
+             width="120" height="120"
+             style="border-radius:50%; object-fit:cover;">
+    {% else %}
+        <p>No profile image</p>
+    {% endif %}
+
+    <form action="/update_profile" method="post" enctype="multipart/form-data">
+        <input type="text" name="username" value="{{ user.uname }}" required><br><br>
+        <input type="email" name="email" value="{{ user.email }}" required><br><br>
+        <input type="file" name="photo"><br><br>
+
+        <button type="submit">Update Profile</button>
+    </form>
+
+</center>
+{% endblock %}

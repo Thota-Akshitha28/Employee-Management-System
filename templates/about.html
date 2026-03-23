@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h2><i class="fas fa-info-circle"></i> About</h2>
+
+    <p style="font-size: 1.2rem; max-width: 700px; margin: 2rem auto; line-height: 1.8;">
+        This project is built using <strong>Flask</strong> and <strong>MySQL</strong> to manage employee data efficiently. 
+        It features secure authentication, password reset via email, and full CRUD operations.
+    </p>
+
+    <!-- Info Boxes -->
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 2rem;">
+
+        <!-- Box 1 -->
+        <div style="background: #ffffff; padding: 20px; width: 250px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <i class="fas fa-users" style="font-size: 2rem; color: #10b981;"></i>
+            <h3>Employee Management</h3>
+            <p style="font-size: 0.95rem;">
+                Easily add, update, and delete employee records in a structured way.
+            </p>
+        </div>
+
+        <!-- Box 2 -->
+        <div style="background: #ffffff; padding: 20px; width: 250px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <i class="fas fa-lock" style="font-size: 2rem; color: #10b981;"></i>
+            <h3>Secure System</h3>
+            <p style="font-size: 0.95rem;">
+                User authentication and password reset ensure data safety and privacy.
+            </p>
+        </div>
+
+        <!-- Box 3 -->
+        <div style="background: #ffffff; padding: 20px; width: 250px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <i class="fas fa-database" style="font-size: 2rem; color: #10b981;"></i>
+            <h3>Database Integration</h3>
+            <p style="font-size: 0.95rem;">
+                Powered by MySQL for reliable storage and efficient data retrieval.
+            </p>
+        </div>
+
+    </div>
+</center>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    {% if session.get('user') %}
+    <h3>Welcome, {{ session['user'] }}</h3>
+{% endif %}
+    <h2><i class="fas fa-home"></i> Welcome</h2>
+    <p style="font-size: 1.4rem; max-width: 700px; margin: 2rem auto; line-height: 1.8;">
+        This system helps you manage employees, track records, and streamline HR operations.
+    </p>
+    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055683.png" width="150" style="margin-top: 2rem; opacity: 0.8;">
+</center>
+{% endblock %}

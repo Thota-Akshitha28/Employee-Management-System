@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+    <h2><i class="fas fa-address-card"></i> Contact Us</h2>
+
+    <div style="background: #f9fafc; padding: 2rem; border-radius: 20px; max-width: 500px; margin: 2rem auto;">
+
+        <!-- Contact Form -->
+        <form action="/contact" method="post">
+            
+            <input type="email" name="email" placeholder="Enter your Email" required><br><br>
+
+            <input type="password" name="password" placeholder="Enter Password" required><br><br>
+
+            <select name="purpose" required style="padding: 8px; width: 80%;">
+                <option value="">Select Purpose</option>
+                <option value="Login Issue">Login Issue</option>
+                <option value="Registration Problem">Registration Problem</option>
+                <option value="Employee Data Issue">Employee Data Issue</option>
+                <option value="Technical Support">Technical Support</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+
+            <button type="submit">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+
+        <!-- Acknowledgement Message -->
+        {% if message %}
+            <p style="margin-top:20px; color: green; font-weight: bold;">
+                {{ message }}
+            </p>
+        {% endif %}
+
+    </div>
+</center>
+{% endblock %}
