@@ -17,12 +17,18 @@
 
 <!-- NAVBAR -->
 <!-- NAVBAR SECTION (SEPARATE BAR) -->
+<!-- NAVBAR -->
 <div class="nav-wrapper">
     <nav class="navbar">
-        <div class="nav-links">
+
+        <!-- Hamburger Button -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-links" id="navLinks">
 
         {% if session.get('user') %}
-            <!-- AFTER LOGIN -->
             <span class="welcome-text">
                 <i class="fas fa-user-circle"></i> Welcome, {{ session['user'] }}
             </span>
@@ -40,7 +46,6 @@
             </a>
 
         {% else %}
-            <!-- BEFORE LOGIN -->
             <a href="{{ url_for('register') }}">
                 <i class="fas fa-user-plus"></i> Register
             </a>
@@ -53,15 +58,21 @@
                 <i class="fas fa-info-circle"></i> About
             </a>
 
-           <a href="{{ url_for('contact') }}">
-    <i class="fas fa-address-card"></i> Contact
-</a>
-
+            <a href="{{ url_for('contact') }}">
+                <i class="fas fa-address-card"></i> Contact
+            </a>
         {% endif %}
 
         </div>
     </nav>
 </div>
+
+<!-- JS -->
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </div>
     <!-- Main Content with Flash Messages -->
